@@ -1,0 +1,16 @@
+{
+  "name": "tracebrief",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Evidence-cited incident analysis for support engineers, TAMs, and SREs.",
+  "scripts": {
+    "dev": "node --watch server/index.mjs",
+    "start": "node server/index.mjs",
+    "test": "node --test",
+    "check": "node --check server/*.mjs && node --test"
+  },
+  "engines": {
+    "node": ">=24"
+  }
+}

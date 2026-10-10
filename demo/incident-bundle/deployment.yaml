@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: checkout-api
+  namespace: shop
+spec:
+  replicas: 10
+  template:
+    spec:
+      containers:
+        - name: checkout-api
+          image: ghcr.io/acme/checkout:v1.8.0
+          env:
+            - name: DB_POOL_SIZE
+              value: "20"
+            - name: DATABASE_URL
+              value: "postgresql://checkout:summer-rain-42@orders-db.internal/orders"
+          readinessProbe:
+            httpGet:
+              path: /ready
+              port: 8080
+            periodSeconds: 5
+            failureThreshold: 2

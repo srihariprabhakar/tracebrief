@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="TraceBrief turns operational evidence into incident briefs where every claim cites its source." />
+    <meta name="theme-color" content="#0b0d10" />
+    <title>TraceBrief · Evidence, not guesses</title>
+    <link rel="icon" href="/mark.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="/styles.css?v=0.1.0" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="topbar">
+        <a class="brand" href="/" aria-label="TraceBrief home">
+          <span class="brand-mark" aria-hidden="true">
+            <svg viewBox="0 0 32 32"><path d="M7 5.5h12l6 6v15H7z"/><path d="M19 5.5v6h6M11 17h10M11 21h7"/><circle cx="23.5" cy="23.5" r="4.5"/><path d="m26.8 26.8 3 3"/></svg>
+          </span>
+          <span>TraceBrief</span>
+          <span class="version">α</span>
+        </a>
+        <div class="topbar-center">
+          <span class="trust-pill"><i></i> Evidence stays local by default</span>
+        </div>
+        <div class="top-actions">
+          <span class="model-status" id="model-status">Checking model…</span>
+          <button class="button ghost compact" id="export-button" type="button">Export brief</button>
+          <button class="button primary compact" id="new-case-button" type="button">New case</button>
+        </div>
+      </header>
+
+      <aside class="sidebar">
+        <div class="sidebar-heading">
+          <span>Case files</span>
+          <span class="case-count" id="case-count">0</span>
+        </div>
+        <div class="case-list" id="case-list"></div>
+        <div class="sidebar-card">
+          <span class="sidebar-card-icon">◎</span>
+          <strong>Trust contract</strong>
+          <p>Every conclusion must resolve to evidence. No citation, no claim.</p>
+          <a href="https://github.com/srihariprabhakar/tracebrief#the-trust-contract" target="_blank" rel="noreferrer">Read the approach <span>↗</span></a>
+        </div>
+      </aside>
+
+      <main class="workspace" id="workspace">
+        <div class="loading-state">
+          <div class="loader"></div>
+          <p>Organizing evidence…</p>
+        </div>
+      </main>
+
+      <aside class="evidence-panel" id="evidence-panel" aria-live="polite">
+        <div class="panel-empty">
+          <div class="empty-symbol">⌁</div>
+          <strong>Evidence inspector</strong>
+          <p>Select a citation to inspect its original context.</p>
+        </div>
+      </aside>
+    </div>
+
+    <dialog id="upload-dialog">
+      <form method="dialog" class="dialog-card" id="upload-form">
+        <div class="dialog-header">
+          <div>
+            <span class="eyebrow">New analysis</span>
+            <h2>Build an incident brief</h2>
+          </div>
+          <button class="icon-button" id="dialog-close-button" type="button" aria-label="Close dialog">×</button>
+        </div>
+        <p class="dialog-copy">Add logs, manifests, events, and configuration snapshots. Files are redacted before any optional model review.</p>
+        <label class="field-label" for="case-title">Case title</label>
+        <input class="text-input" id="case-title" name="title" value="Production incident" maxlength="120" />
+        <label class="drop-zone" id="drop-zone" for="file-input">
+          <input id="file-input" type="file" multiple accept=".log,.txt,.yaml,.yml,.json,.conf,.md" />
+          <span class="upload-icon">↥</span>
+          <strong>Drop an evidence bundle here</strong>
+          <span>or choose up to 30 text files · 8 MB total</span>
+        </label>
+        <div class="selected-files" id="selected-files"></div>
+        <div class="safety-note"><span>◈</span><p><strong>Safe by construction.</strong> Secrets and personal data are masked before storage or model review. Instruction-like log content is quarantined.</p></div>
+        <div class="dialog-actions">
+          <button class="button ghost" id="dialog-cancel-button" type="button">Cancel</button>
+          <button class="button subtle" id="demo-button" type="button">Use synthetic demo</button>
+          <button class="button primary" id="analyze-button" type="submit">Analyze evidence</button>
+        </div>
+      </form>
+    </dialog>
+
+    <div class="toast" id="toast" role="status"></div>
+    <script type="module" src="/app.js?v=0.1.0"></script>
+  </body>
+</html>
