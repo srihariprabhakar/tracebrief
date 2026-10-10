@@ -1,0 +1,6 @@
+2026-06-17T14:00:00Z LOG database system is ready to accept connections max_connections=100
+2026-06-17T14:01:31Z WARNING connection count is 96; threshold is 90
+2026-06-17T14:01:36Z FATAL remaining connection slots are reserved for non-replication superuser connections
+2026-06-17T14:01:39Z FATAL too many clients already application_name=checkout-api
+2026-06-17T14:01:47Z FATAL too many clients already application_name=checkout-api
+2026-06-17T14:02:07Z LOG checkpoint complete: wrote 184 buffers

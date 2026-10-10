@@ -1,0 +1,8 @@
+2026-06-17T14:00:12Z Normal ScalingReplicaSet deployment/checkout-api Scaled replica set checkout-api-7f9b7 from 4 to 10
+2026-06-17T14:00:19Z Normal Pulling pod/checkout-api-7f9b7-k2v8n Pulling image "ghcr.io/acme/checkout:v1.8.0"
+2026-06-17T14:00:31Z Normal Started pod/checkout-api-7f9b7-k2v8n Started container checkout-api
+2026-06-17T14:01:42Z Warning Unhealthy pod/checkout-api-7f9b7-k2v8n Readiness probe failed: HTTP probe failed with statuscode: 503
+2026-06-17T14:01:44Z Warning Unhealthy pod/checkout-api-7f9b7-p9q4w Readiness probe failed: HTTP probe failed with statuscode: 503
+2026-06-17T14:01:47Z Warning Unhealthy pod/checkout-api-7f9b7-t7m2x Readiness probe failed: HTTP probe failed with statuscode: 503
+2026-06-17T14:01:51Z Warning FailedToUpdateEndpoint endpoints/checkout-api No ready addresses for service checkout-api
+2026-06-17T14:02:08Z Warning BackOff pod/checkout-api-7f9b7-p9q4w Back-off restarting failed container checkout-api

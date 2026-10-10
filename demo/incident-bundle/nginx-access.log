@@ -1,0 +1,6 @@
+2026-06-17T14:00:54Z 10.42.2.18 - request_id=req-7d11 "POST /api/checkout HTTP/1.1" 200 842 upstream=checkout-api:8080 response_time=0.142
+2026-06-17T14:01:39Z 10.42.7.91 - request_id=req-9a22 "POST /api/checkout HTTP/1.1" 502 157 upstream=checkout-api:8080 response_time=5.002 upstream_status=502
+2026-06-17T14:01:43Z 10.42.1.44 - request_id=req-c331 "POST /api/checkout HTTP/1.1" 502 157 upstream=checkout-api:8080 response_time=5.001 upstream_status=502
+2026-06-17T14:01:49Z 10.42.3.72 - request_id=req-2f80 "GET /api/orders/8841 HTTP/1.1" 503 190 upstream=checkout-api:8080 response_time=0.002
+2026-06-17T14:02:03Z ERROR no live upstreams while connecting to upstream client=10.42.8.55 request_id=req-f820 upstream=checkout-api
+2026-06-17T14:02:11Z 10.42.8.55 - request_id=req-f820 "POST /api/checkout HTTP/1.1" 502 157 upstream=checkout-api:8080 response_time=0.001

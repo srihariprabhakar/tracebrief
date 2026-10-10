@@ -1,0 +1,8 @@
+.git
+.github
+data
+node_modules
+coverage
+.env
+*.log
+!demo/incident-bundle/*.log
